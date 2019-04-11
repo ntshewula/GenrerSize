@@ -48,8 +48,29 @@ public class GenrersSize {
 			size.add(typ.getValue());
 		}
 
-		return null;
+		return getResults(size, types);
 	}
 
+	public String getResults(ArrayList<String> size, ArrayList<String> generesType) {
+		StringBuilder str = new StringBuilder();
+
+		for (int i = 0; i < generesType.size(); i++) {
+			if (generesType.get(i).equals("mp3") || generesType.get(i).equals("aac") || generesType.get(i).equals("flac")) {
+				music += Integer.parseInt(size.get(i).substring(0, size.get(i).length() - 1));
+			} else if (generesType.get(i).equals("jpg") || generesType.get(i).equals("bmp") || generesType.get(i).equals("gif")) {
+				image += Integer.parseInt(size.get(i).substring(0, size.get(i).length() - 1));
+			} else if (generesType.get(i).equals("mp4") || generesType.get(i).equals("avi") || generesType.get(i).equals("mkv")) {
+				movies += Integer.parseInt(size.get(i).substring(0, size.get(i).length() - 1));
+			} else {
+				other += Integer.parseInt(size.get(i).substring(0, size.get(i).length() - 1));
+			}
+		}
+
+		str.append("music " + music + "b" + '\n');
+		str.append("images " + image + "b" + '\n');
+		str.append("movies " + movies + "b" + '\n');
+		str.append("others " + other + "b" + '\n');
+		return str.toString();
+	}
 	// endregion
 }
