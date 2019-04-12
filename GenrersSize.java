@@ -48,7 +48,7 @@ public class GenrersSize {
 			size.add(typ.getValue());
 		}
 
-		return getResults(size, types)+"luvo";
+		return getResults(size, types);
 	}
 
 	public String getResults(ArrayList<String> size, ArrayList<String> generesType) {
